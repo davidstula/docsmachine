@@ -1,1 +1,4 @@
 site_name: Docs Machine
+nav:
+    - Home: index.md
+    - Stack: stack.md
