@@ -21,3 +21,13 @@ To operate GitHub I use GitHub CLI in a PowerShell terminal. I'm authenticated v
 ## Static site generator
 
 I use [mkDocs](https://www.mkdocs.org/) to generate and serve a local version of the docs site.
+
+## Automation
+
+A GitHub Action workflow executes on a pull request to the "master" branch. The workflow runs on an Ubuntu runner with Python and does the following: 
+
+1. Install mkDocs.
+1. Check out the master branch.
+1. Run ```mkdocs build```.
+1. Upload the resulting ```site``` folder to Github Pages as an artifact.
+1. Deploy the pages.
