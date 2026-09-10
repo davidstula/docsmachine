@@ -1,0 +1,27 @@
+name: Lint and check if a pull request will build
+
+on:
+  pull_request:
+    branches: "master"
+    paths: 
+      - 'docs/**'
+      - 'mkdocs.yml'
+      # TODO: add the linter style/config files here later so that it triggers when the config changes
+  
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the proposed merge
+        uses: actions/checkout@v7
+
+      - name: Lint all markdown files under the docs directory
+        uses: DavidAnson/markdownlint-cli2-action@v24.2.0
+        with:
+          globs: 'docs/**/*.md'
+
+      - name: Set up mkdocs
+        run: pip install mkdocs
+
+      - name: Build the docs site
+        run: mkdocs build --strict
