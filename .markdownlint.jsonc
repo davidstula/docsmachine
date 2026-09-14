@@ -1,0 +1,37 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema.json",
+
+  // Start with no rules, then enable only checks for defects and consistency.
+  "default": false,
+
+  // Document structure
+  "MD001": true,
+
+  // Consistency without prescribing a particular Markdown style
+  "MD003": { "style": "consistent" },
+  "MD004": { "style": "consistent" },
+  "MD005": true,
+  "MD029": { "style": "one_or_ordered" },
+
+  // Whitespace and delimiter errors
+  "MD009": true,
+  "MD010": { "code_blocks": false },
+  "MD012": true,
+  "MD018": true,
+  "MD019": true,
+  "MD020": true,
+  "MD021": true,
+  "MD027": true,
+  "MD030": true,
+  "MD037": true,
+  "MD039": true,
+
+  // Broken or ambiguous Markdown syntax
+  "MD011": true,
+  "MD028": true,
+  "MD042": true,
+  "MD047": true,
+  "MD052": true,
+  "MD053": true,
+  "MD056": true
+}
