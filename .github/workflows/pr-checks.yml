@@ -6,7 +6,7 @@ on:
     paths: 
       - 'docs/**'
       - 'mkdocs.yml'
-      # TODO: add the linter style/config files here later so that it triggers when the config changes
+      - '.markdownlint.jsonc'
   
 jobs:
   lint:

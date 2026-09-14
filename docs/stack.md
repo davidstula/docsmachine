@@ -4,7 +4,7 @@ I'm using these tools in the pipeline.
 
 ## Authoring
 
-I write markdown files with **Notepad++**. 
+I write markdown files with **Notepad++**.
 
 I use the following plugins:
 
@@ -12,7 +12,7 @@ I use the following plugins:
 
 ## Versioning
 
-I use Git on Windows locally. I host the repository on GitHub. 
+I use Git on Windows locally. I host the repository on GitHub.
 
 [Open the repository](https://github.com/davidstula/docsmachine)
 
@@ -24,7 +24,7 @@ I use [mkDocs](https://www.mkdocs.org/) to generate and serve a local version of
 
 ## Automation
 
-A GitHub Action workflow executes on a pull request to the "master" branch. The workflow runs on an Ubuntu runner with Python and does the following: 
+A GitHub Action workflow executes on a pull request to the "master" branch. The workflow runs on an Ubuntu runner with Python and does the following:
 
 1. Install mkDocs.
 1. Check out the master branch.
