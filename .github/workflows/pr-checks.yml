@@ -3,11 +3,16 @@ name: Lint and check if a pull request will build
 on:
   pull_request:
     branches: "master"
-    paths: 
+    paths:
       - 'docs/**'
       - 'mkdocs.yml'
       - '.markdownlint.jsonc'
-  
+      - '.github/ai-review/**'
+      - '.github/workflows/pr-checks.yml'
+
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -25,3 +30,29 @@ jobs:
 
       - name: Build the docs site
         run: mkdocs build --strict
+
+  ai-review:
+    name: AI documentation review
+    needs: lint
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Check out the proposed merge with its history
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Install the AI review dependency
+        working-directory: .github/ai-review
+        run: npm ci
+
+      - name: Review the pull request
+        run: node .github/ai-review/review.mjs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL }}

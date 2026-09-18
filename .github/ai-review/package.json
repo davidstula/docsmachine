@@ -1,0 +1,14 @@
+{
+  "name": "docs-machine-ai-review",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node --check review.mjs"
+  },
+  "dependencies": {
+    "openai": "7.15.0"
+  }
+}
