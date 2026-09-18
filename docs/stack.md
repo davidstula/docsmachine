@@ -18,16 +18,24 @@ I use Git on Windows locally. I host the repository on GitHub.
 
 To operate GitHub I use GitHub CLI in a PowerShell terminal. I'm authenticated via a Github token (the classic type) and communicating through HTTPS.
 
+## Linter
+
+Markdownlint checks the the markdown files for common formatting errors.
+
+## AI review
+
+OpenAI GPT 5.6 Luna checks new and updated documentation for clarity and documentation drift.
+
+The AI review functionality is wrapped in a node.js script which uses the OpenAI Node.js SDK.
+
 ## Static site generator
 
 I use [mkDocs](https://www.mkdocs.org/) to generate and serve a local version of the docs site.
 
 ## Automation
 
-A GitHub Action workflow executes on a pull request to the "master" branch. The workflow runs on an Ubuntu runner with Python and does the following:
+A GitHub Action workflow executes on a pull request to the "master" branch. The workflow runs on an Ubuntu runner and does the following:
 
-1. Install mkDocs.
-1. Check out the master branch.
-1. Run ```mkdocs build```.
-1. Upload the resulting ```site``` folder to Github Pages as an artifact.
-1. Deploy the pages.
+1. Run the linter to check markdown formatting.
+1. Build the static website with the ```--strict``` argument to check for build errors.
+1. Run the AI review.
