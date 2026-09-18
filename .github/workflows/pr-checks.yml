@@ -23,6 +23,7 @@ jobs:
       - name: Lint all markdown files under the docs directory
         uses: DavidAnson/markdownlint-cli2-action@v24.2.0
         with:
+          config: '.markdownlint.jsonc'
           globs: 'docs/**/*.md'
 
       - name: Set up mkdocs
