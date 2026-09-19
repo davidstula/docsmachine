@@ -29,7 +29,7 @@ Run all commands from the repository root. The commands below use PowerShell.
 1. Install the AI review dependency: ```npm ci --prefix .github/ai-review```
 1. Create an _.env_ file in the repository root with your own API key and model:
 
-   ```dotenv
+   ```
    OPENAI_API_KEY=your-api-key
    OPENAI_MODEL=your-model-id
    ```
