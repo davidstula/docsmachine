@@ -1,6 +1,6 @@
 # My Docs as Code stack
 
-This page details the tools used in the pipeline and my reasoning for choosing those tools. For details about the pipeline itself, see [the home page](index.md).
+This page details the tools used in the pipeline and my reasoning for choosing those tools. For details about the pipeline itself, see [the home page](README.md).
 
 ## Authoring
 
