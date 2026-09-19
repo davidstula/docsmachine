@@ -107,8 +107,7 @@ async function main() {
     model,
     instructions,
     input: `Review this pull request diff:\n\n${diff}`,
-    max_output_tokens: 1200,
-    store: false,
+    max_output_tokens: 5000,
   });
 
   if (response.status !== "completed") {
